@@ -16,5 +16,10 @@ namespace Ch12_1BasicCalculator
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
