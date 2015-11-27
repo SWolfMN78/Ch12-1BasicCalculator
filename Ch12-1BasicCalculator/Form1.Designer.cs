@@ -58,10 +58,10 @@
             this.lblEquationAnswer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblEquationAnswer.Location = new System.Drawing.Point(8, 56);
             this.lblEquationAnswer.Name = "lblEquationAnswer";
+            this.lblEquationAnswer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblEquationAnswer.Size = new System.Drawing.Size(192, 23);
             this.lblEquationAnswer.TabIndex = 0;
             this.lblEquationAnswer.Text = "0";
-            this.lblEquationAnswer.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnBack
             // 
@@ -175,7 +175,7 @@
             this.btnPosNeg.Name = "btnPosNeg";
             this.btnPosNeg.Size = new System.Drawing.Size(32, 32);
             this.btnPosNeg.TabIndex = 19;
-            this.btnPosNeg.Text = "-/+";
+            this.btnPosNeg.Text = "+/-";
             this.btnPosNeg.UseVisualStyleBackColor = true;
             // 
             // btn9
@@ -289,6 +289,7 @@
             this.btnReciprocal.ForeColor = System.Drawing.Color.Blue;
             this.btnReciprocal.Location = new System.Drawing.Point(168, 168);
             this.btnReciprocal.Name = "btnReciprocal";
+            this.btnReciprocal.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnReciprocal.Size = new System.Drawing.Size(32, 32);
             this.btnReciprocal.TabIndex = 7;
             this.btnReciprocal.Text = "1/X";
@@ -303,13 +304,14 @@
             this.btnEqual.Name = "btnEqual";
             this.btnEqual.Size = new System.Drawing.Size(32, 72);
             this.btnEqual.TabIndex = 6;
-            this.btnEqual.Text = "&=";
+            this.btnEqual.Text = "=";
             this.btnEqual.UseVisualStyleBackColor = true;
             // 
             // lblTextDisplay
             // 
             this.lblTextDisplay.Location = new System.Drawing.Point(8, 16);
             this.lblTextDisplay.Name = "lblTextDisplay";
+            this.lblTextDisplay.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblTextDisplay.Size = new System.Drawing.Size(192, 23);
             this.lblTextDisplay.TabIndex = 22;
             // 
@@ -317,7 +319,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(210, 294);
+            this.ClientSize = new System.Drawing.Size(212, 294);
             this.Controls.Add(this.lblTextDisplay);
             this.Controls.Add(this.btnEqual);
             this.Controls.Add(this.btnReciprocal);
@@ -342,10 +344,11 @@
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblEquationAnswer);
             this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.Name = "Form1";
-            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Calculator";
             this.ResumeLayout(false);
 
         }
