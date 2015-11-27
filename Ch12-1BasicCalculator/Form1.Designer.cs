@@ -58,10 +58,11 @@
             this.lblEquationAnswer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblEquationAnswer.Location = new System.Drawing.Point(8, 56);
             this.lblEquationAnswer.Name = "lblEquationAnswer";
-            this.lblEquationAnswer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblEquationAnswer.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblEquationAnswer.Size = new System.Drawing.Size(192, 23);
             this.lblEquationAnswer.TabIndex = 0;
             this.lblEquationAnswer.Text = "0";
+            this.lblEquationAnswer.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // btnBack
             // 
@@ -122,6 +123,7 @@
             this.btn1.TabIndex = 15;
             this.btn1.Text = "&1";
             this.btn1.UseVisualStyleBackColor = true;
+            this.btn1.Click += new System.EventHandler(this.btn1_Click);
             // 
             // btn0
             // 
@@ -133,6 +135,7 @@
             this.btn0.TabIndex = 18;
             this.btn0.Text = "&0";
             this.btn0.UseVisualStyleBackColor = true;
+            this.btn0.Click += new System.EventHandler(this.btn0_Click);
             // 
             // btn8
             // 
@@ -144,6 +147,7 @@
             this.btn8.TabIndex = 10;
             this.btn8.Text = "&8";
             this.btn8.UseVisualStyleBackColor = true;
+            this.btn8.Click += new System.EventHandler(this.btn8_Click);
             // 
             // btn5
             // 
@@ -155,6 +159,7 @@
             this.btn5.TabIndex = 13;
             this.btn5.Text = "&5";
             this.btn5.UseVisualStyleBackColor = true;
+            this.btn5.Click += new System.EventHandler(this.btn5_Click);
             // 
             // btn2
             // 
@@ -166,6 +171,7 @@
             this.btn2.TabIndex = 16;
             this.btn2.Text = "&2";
             this.btn2.UseVisualStyleBackColor = true;
+            this.btn2.Click += new System.EventHandler(this.btn2_Click);
             // 
             // btnPosNeg
             // 
@@ -177,6 +183,7 @@
             this.btnPosNeg.TabIndex = 19;
             this.btnPosNeg.Text = "+/-";
             this.btnPosNeg.UseVisualStyleBackColor = true;
+            this.btnPosNeg.Click += new System.EventHandler(this.btnPosNeg_Click);
             // 
             // btn9
             // 
@@ -188,6 +195,7 @@
             this.btn9.TabIndex = 11;
             this.btn9.Text = "&9";
             this.btn9.UseVisualStyleBackColor = true;
+            this.btn9.Click += new System.EventHandler(this.btn9_Click);
             // 
             // btn6
             // 
@@ -199,6 +207,7 @@
             this.btn6.TabIndex = 14;
             this.btn6.Text = "&6";
             this.btn6.UseVisualStyleBackColor = true;
+            this.btn6.Click += new System.EventHandler(this.btn6_Click);
             // 
             // btn3
             // 
@@ -210,6 +219,7 @@
             this.btn3.TabIndex = 17;
             this.btn3.Text = "&3";
             this.btn3.UseVisualStyleBackColor = true;
+            this.btn3.Click += new System.EventHandler(this.btn3_Click);
             // 
             // btnDecimal
             // 
@@ -222,6 +232,7 @@
             this.btnDecimal.TabIndex = 20;
             this.btnDecimal.Text = "&.";
             this.btnDecimal.UseVisualStyleBackColor = true;
+            this.btnDecimal.Click += new System.EventHandler(this.btnDecimal_Click);
             // 
             // btnDivide
             // 
@@ -234,6 +245,7 @@
             this.btnDivide.TabIndex = 2;
             this.btnDivide.Text = "&/";
             this.btnDivide.UseVisualStyleBackColor = true;
+            this.btnDivide.Click += new System.EventHandler(this.btnDivide_Click);
             // 
             // btnMultiply
             // 
@@ -246,6 +258,7 @@
             this.btnMultiply.TabIndex = 3;
             this.btnMultiply.Text = "&*";
             this.btnMultiply.UseVisualStyleBackColor = true;
+            this.btnMultiply.Click += new System.EventHandler(this.btnMultiply_Click);
             // 
             // btnSubtract
             // 
@@ -256,8 +269,9 @@
             this.btnSubtract.Name = "btnSubtract";
             this.btnSubtract.Size = new System.Drawing.Size(32, 32);
             this.btnSubtract.TabIndex = 4;
-            this.btnSubtract.Text = "&-";
+            this.btnSubtract.Text = "-";
             this.btnSubtract.UseVisualStyleBackColor = true;
+            this.btnSubtract.Click += new System.EventHandler(this.btnSubtract_Click);
             // 
             // btnAddition
             // 
@@ -268,8 +282,9 @@
             this.btnAddition.Name = "btnAddition";
             this.btnAddition.Size = new System.Drawing.Size(32, 32);
             this.btnAddition.TabIndex = 5;
-            this.btnAddition.Text = "&+";
+            this.btnAddition.Text = "+";
             this.btnAddition.UseVisualStyleBackColor = true;
+            this.btnAddition.Click += new System.EventHandler(this.btnAddition_Click);
             // 
             // btnSquareRoot
             // 
@@ -281,6 +296,7 @@
             this.btnSquareRoot.TabIndex = 8;
             this.btnSquareRoot.Text = "sqrt";
             this.btnSquareRoot.UseVisualStyleBackColor = true;
+            this.btnSquareRoot.Click += new System.EventHandler(this.btnSquareRoot_Click);
             // 
             // btnReciprocal
             // 
@@ -294,6 +310,7 @@
             this.btnReciprocal.TabIndex = 7;
             this.btnReciprocal.Text = "1/X";
             this.btnReciprocal.UseVisualStyleBackColor = true;
+            this.btnReciprocal.Click += new System.EventHandler(this.btnReciprocal_Click);
             // 
             // btnEqual
             // 
@@ -306,14 +323,16 @@
             this.btnEqual.TabIndex = 6;
             this.btnEqual.Text = "=";
             this.btnEqual.UseVisualStyleBackColor = true;
+            this.btnEqual.Click += new System.EventHandler(this.btnEqual_Click);
             // 
             // lblTextDisplay
             // 
             this.lblTextDisplay.Location = new System.Drawing.Point(8, 16);
             this.lblTextDisplay.Name = "lblTextDisplay";
-            this.lblTextDisplay.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblTextDisplay.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblTextDisplay.Size = new System.Drawing.Size(192, 23);
             this.lblTextDisplay.TabIndex = 22;
+            this.lblTextDisplay.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // Form1
             // 
@@ -347,8 +366,9 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculator";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
