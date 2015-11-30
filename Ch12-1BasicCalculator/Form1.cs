@@ -22,24 +22,39 @@ namespace Ch12_1BasicCalculator
         /// Create a basic calculator form that lets the user perform your basic +, -, *, / operation as well 
         /// as some added parts (square root = sqrt, and recepricol = 1/X).  All operations will be performed by
         /// a class.
-        /// 
-        /// Current found issue the button seems to flip +/- to -/+ and viceversa.  This issue is causing problems
-        /// with 1/X
         /// </summary>
 
         //one list to hold the numbers and one list to hold the Operands for the equations that will be worked.
+        //all of the information will be poured  into the two list then worked from here.  
+        //This will allow for a string or strings of information to be worked easily.
         public List<string> NumList = new List<string>();
         public List<string> Operand = new List<string>();
-
+        private string CurrentValue
+        {
+            //this is going to handle figuring out the process of removing an item from the string of numbers
+            //the user put in and spitting it back out for the application to use.
+            get
+            {
+                return NumList[NumList.Count - 1];
+            }
+            set
+            {
+                NumList[NumList.Count - 1] = value;
+                lblEquationAnswer.Text = CurrentValue;
+            }
+                       
+        }
+        
         private void AddNumberToCurrentValue(string typedNumber)
         {
-            NumList[NumList.Count - 1] += typedNumber;
-            lblEquationAnswer.Text = NumList[NumList.Count - 1];
+            //Here we add information to the numList (shown above) and display the information for the user.
+            CurrentValue += typedNumber;
+            lblEquationAnswer.Text = CurrentValue;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            //on form load clear the information from the current display
             ClearInfo();
         }
 
@@ -52,12 +67,24 @@ namespace Ch12_1BasicCalculator
             lblTextDisplay.Text = "";
             lblEquationAnswer.Text = "0";
         }
+
         
+
         #region Buttons
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            //When this is pressed it will take one digit out of the listing.
+            if (CurrentValue.Length > 0)
+            {
+                CurrentValue = CurrentValue.Remove(CurrentValue.Length - 1);
+            }
 
+            lblEquationAnswer.Text = CurrentValue;
+            if (CurrentValue.Length == 0)
+            {
+                lblEquationAnswer.Text = "0";
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -118,7 +145,15 @@ namespace Ch12_1BasicCalculator
 
         private void btnPosNeg_Click(object sender, EventArgs e)
         {
-
+            //Check on the string to see if it holds a "-" if it doesn't then remove it 
+            if (CurrentValue.Contains("-"))
+            {
+                CurrentValue = CurrentValue.Replace("-", "");
+            }
+            else
+            {
+                CurrentValue = "-" + CurrentValue;
+            }
         }
 
         private void btnDecimal_Click(object sender, EventArgs e)
@@ -128,7 +163,10 @@ namespace Ch12_1BasicCalculator
             {
                 AddNumberToCurrentValue(".");
             }
-            
+            if (CurrentValue == ".")
+            {
+                CurrentValue = "0.";
+            }
 
         }
 
