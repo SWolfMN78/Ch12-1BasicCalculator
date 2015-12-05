@@ -1,6 +1,6 @@
 ﻿namespace Ch12_1BasicCalculator
 {
-    partial class Form1
+    partial class frmCalculator
     {
         /// <summary>
         /// Required designer variable.

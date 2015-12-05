@@ -11,9 +11,9 @@ using System.Windows.Forms;
 namespace Ch12_1BasicCalculator
 {
 
-    public partial class Form1 : Form
+    public partial class frmCalculator : Form
     {
-        public Form1()
+        public frmCalculator()
         {
             InitializeComponent();
         }
@@ -29,6 +29,21 @@ namespace Ch12_1BasicCalculator
         //This will allow for a string or strings of information to be worked easily.
         public List<string> NumList = new List<string>();
         public List<string> Operand = new List<string>();
+        public string operation;
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //on form load clear the information from the current display
+            ClearInfo();
+        }
+
+        private void AddNumberToCurrentValue(string typedNumber)
+        {
+            //Here we add information to the numList (shown above) and display the information for the user.
+            CurrentValue += typedNumber;
+            lblEquationAnswer.Text = CurrentValue;
+        }
+
         private string CurrentValue
         {
             //this is going to handle figuring out the process of removing an item from the string of numbers
@@ -44,24 +59,12 @@ namespace Ch12_1BasicCalculator
             }
                        
         }
-        
-        private void AddNumberToCurrentValue(string typedNumber)
-        {
-            //Here we add information to the numList (shown above) and display the information for the user.
-            CurrentValue += typedNumber;
-            lblEquationAnswer.Text = CurrentValue;
-        }
 
-        private void OperatorCheck(string typedOperator)
-        {
-            //here we're going to put in a switch to handle finding out which operator was clicked 
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            //on form load clear the information from the current display
-            ClearInfo();
-        }
+        //private void OperatorCheck(string typedOperator)
+        //{
+        //    //here we're going to put in a switch to handle finding out which operator was clicked 
+        //    oOperator.FindOperator(typedOperator);
+        //}
 
         private void ClearInfo()
         {
@@ -71,9 +74,7 @@ namespace Ch12_1BasicCalculator
             NumList.Add("");
             lblTextDisplay.Text = "";
             lblEquationAnswer.Text = "0";
-        }
-
-        
+        }        
 
         #region Buttons
 
@@ -177,8 +178,8 @@ namespace Ch12_1BasicCalculator
 
         private void btnAddition_Click(object sender, EventArgs e)
         {
-            //pass this information to the switch check OperatorCheck
-            OperatorCheck("+");
+            operation = btnAddition.Text;
+            oOperator.FindOperator(operation);
         }
 
         private void btnSubtract_Click(object sender, EventArgs e)
