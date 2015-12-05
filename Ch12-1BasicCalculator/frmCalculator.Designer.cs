@@ -269,7 +269,7 @@
             this.btnSubtract.Name = "btnSubtract";
             this.btnSubtract.Size = new System.Drawing.Size(32, 32);
             this.btnSubtract.TabIndex = 4;
-            this.btnSubtract.Text = "-";
+            this.btnSubtract.Text = "&-";
             this.btnSubtract.UseVisualStyleBackColor = true;
             this.btnSubtract.Click += new System.EventHandler(this.btnSubtract_Click);
             // 
@@ -282,7 +282,7 @@
             this.btnAddition.Name = "btnAddition";
             this.btnAddition.Size = new System.Drawing.Size(32, 32);
             this.btnAddition.TabIndex = 5;
-            this.btnAddition.Text = "+";
+            this.btnAddition.Text = "&+";
             this.btnAddition.UseVisualStyleBackColor = true;
             this.btnAddition.Click += new System.EventHandler(this.btnAddition_Click);
             // 
@@ -321,7 +321,7 @@
             this.btnEqual.Name = "btnEqual";
             this.btnEqual.Size = new System.Drawing.Size(32, 72);
             this.btnEqual.TabIndex = 6;
-            this.btnEqual.Text = "=";
+            this.btnEqual.Text = "&=";
             this.btnEqual.UseVisualStyleBackColor = true;
             this.btnEqual.Click += new System.EventHandler(this.btnEqual_Click);
             // 
@@ -334,7 +334,7 @@
             this.lblTextDisplay.TabIndex = 22;
             this.lblTextDisplay.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // Form1
+            // frmCalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -364,7 +364,7 @@
             this.Controls.Add(this.lblEquationAnswer);
             this.KeyPreview = true;
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "frmCalculator";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculator";

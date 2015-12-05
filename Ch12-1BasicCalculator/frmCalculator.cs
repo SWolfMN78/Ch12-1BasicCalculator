@@ -29,7 +29,6 @@ namespace Ch12_1BasicCalculator
         //This will allow for a string or strings of information to be worked easily.
         public List<string> NumList = new List<string>();
         public List<string> Operand = new List<string>();
-        public string operation;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -48,30 +47,33 @@ namespace Ch12_1BasicCalculator
         {
             //this is going to handle figuring out the process of removing an item from the string of numbers
             //the user put in and spitting it back out for the application to use.
-            get
-            {
-                return NumList[NumList.Count - 1];
-            }
-            set
-            {
-                NumList[NumList.Count - 1] = value;
-                lblEquationAnswer.Text = CurrentValue;
-            }
-                       
+            get { return NumList[NumList.Count - 1];}
+            set { NumList[NumList.Count - 1] = value; 
+                lblEquationAnswer.Text = CurrentValue;}           
         }
 
-        //private void OperatorCheck(string typedOperator)
-        //{
-        //    //here we're going to put in a switch to handle finding out which operator was clicked 
-        //    oOperator.FindOperator(typedOperator);
-        //}
+        private string CurrentOperand
+        {
+            //pull the current selected operand from the typed information of the user
+            get { return Operand[Operand.Count - 1]; }
+            set
+            {
+                Operand[Operand.Count - 1] = value;
+                lblEquationAnswer.Text = CurrentValue + CurrentOperand;
+                //when this information is set it will then add another spot for a new number and operand in their list.
+                NumList.Add("");
+                Operand.Add("");
+            }
+        }
 
         private void ClearInfo()
         {
-            //clear the current information in the numlist.
+            //clear the current information in the list.
             NumList.Clear();
-            //add a new item to the numlist.
+            Operand.Clear();
+            //add a new item to the list.
             NumList.Add("");
+            Operand.Add("");
             lblTextDisplay.Text = "";
             lblEquationAnswer.Text = "0";
         }        
@@ -178,45 +180,103 @@ namespace Ch12_1BasicCalculator
 
         private void btnAddition_Click(object sender, EventArgs e)
         {
-            operation = btnAddition.Text;
-            oOperator.FindOperator(operation);
+            //when the user clicks the selected button it will set the operand in the system.
+            CurrentOperand = "+";              
         }
 
         private void btnSubtract_Click(object sender, EventArgs e)
         {
             //pass this information to the switch check OperatorCheck
-            OperatorCheck("-");
+            CurrentOperand = "-";
         }
 
         private void btnMultiply_Click(object sender, EventArgs e)
         {
-            //pass this information to the switch check OperatorCheck
-            OperatorCheck("*");
+            CurrentOperand = "*";  
         }
 
         private void btnDivide_Click(object sender, EventArgs e)
         {
             //pass this information to the switch check OperatorCheck
-            OperatorCheck("/");
+            CurrentOperand = "/";
         }
 
         private void btnEqual_Click(object sender, EventArgs e)
         {
             //When this button is pressed it is going to take the first operand, the operator and the last operand.
             //then work the equation and display the answer.
+            string stringCalculation = "";
+            decimal returnedCalculation = 0;
+
+            try
+            {
+                returnedCalculation = oOperator.CalculateOperation(NumList, Operand);
+                stringCalculation = oOperator.DisplayCalculation(NumList, Operand);
+                ClearInfo();
+                CurrentValue = returnedCalculation.ToString();
+                lblEquationAnswer.Text = returnedCalculation.ToString();
+                lblTextDisplay.Text = stringCalculation;
+            }
+            catch (DivideByZeroException ex)
+            {
+                ClearInfo();
+                lblEquationAnswer.Text = "Cannot divide by zero";
+            }
+
         }
 
         private void btnReciprocal_Click(object sender, EventArgs e)
         {
             //This is an extra item to be added.
+            string stringCalculation = "";
+            decimal returnedCalculation = 0;
+
+            try
+            {
+                returnedCalculation = oOperator.CalculateOperation(NumList, Operand);
+                ClearInfo();
+                double x = Convert.ToDouble(returnedCalculation);
+                x = 1/(x);
+                stringCalculation = "1 / (" + returnedCalculation.ToString() +")";
+
+                CurrentValue = x.ToString();
+                lblEquationAnswer.Text = x.ToString();
+                lblTextDisplay.Text = stringCalculation;
+            }
+            catch (DivideByZeroException ex)
+            {
+                ClearInfo();
+                lblEquationAnswer.Text = "Cannot divide by zero";
+            }
         }
 
         private void btnSquareRoot_Click(object sender, EventArgs e)
         {
             //This is an extra item to be added.
+            string stringCalculation = "";
+            decimal returnedCalculation = 0;
+
+            try
+            {
+                returnedCalculation = oOperator.CalculateOperation(NumList, Operand);
+                ClearInfo();
+                double x = Convert.ToDouble(returnedCalculation);
+                x = Math.Sqrt(x);
+                stringCalculation = "√(" + returnedCalculation + ")";
+
+                CurrentValue = x.ToString();
+                lblEquationAnswer.Text = x.ToString();
+                lblTextDisplay.Text = stringCalculation;
+            }
+            catch (DivideByZeroException ex)
+            {
+                ClearInfo();
+                lblEquationAnswer.Text = "Cannot divide by zero";
+            }
+
         }
 
         #endregion
-
+        
     }
 }
