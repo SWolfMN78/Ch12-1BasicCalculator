@@ -9,5 +9,8 @@ namespace Ch12_1BasicCalculator
     //Class to handle doing the operations for when the main form calls the class. +,-,*,/
     class oOperator
     {
+        public static string addition;
+        public static string subtraction;
+        public static string multiply;
     }
 }

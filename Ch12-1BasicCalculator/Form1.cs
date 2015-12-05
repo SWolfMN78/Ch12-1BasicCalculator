@@ -52,6 +52,11 @@ namespace Ch12_1BasicCalculator
             lblEquationAnswer.Text = CurrentValue;
         }
 
+        private void OperatorCheck(string typedOperator)
+        {
+            //here we're going to put in a switch to handle finding out which operator was clicked 
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             //on form load clear the information from the current display
@@ -172,37 +177,42 @@ namespace Ch12_1BasicCalculator
 
         private void btnAddition_Click(object sender, EventArgs e)
         {
-
+            //pass this information to the switch check OperatorCheck
+            OperatorCheck("+");
         }
 
         private void btnSubtract_Click(object sender, EventArgs e)
         {
-
+            //pass this information to the switch check OperatorCheck
+            OperatorCheck("-");
         }
 
         private void btnMultiply_Click(object sender, EventArgs e)
         {
-
+            //pass this information to the switch check OperatorCheck
+            OperatorCheck("*");
         }
 
         private void btnDivide_Click(object sender, EventArgs e)
         {
-
+            //pass this information to the switch check OperatorCheck
+            OperatorCheck("/");
         }
 
         private void btnEqual_Click(object sender, EventArgs e)
         {
-
+            //When this button is pressed it is going to take the first operand, the operator and the last operand.
+            //then work the equation and display the answer.
         }
 
         private void btnReciprocal_Click(object sender, EventArgs e)
         {
-
+            //This is an extra item to be added.
         }
 
         private void btnSquareRoot_Click(object sender, EventArgs e)
         {
-
+            //This is an extra item to be added.
         }
 
         #endregion
