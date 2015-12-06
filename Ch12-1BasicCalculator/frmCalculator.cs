@@ -277,6 +277,5 @@ namespace Ch12_1BasicCalculator
         }
 
         #endregion
-        
     }
 }
