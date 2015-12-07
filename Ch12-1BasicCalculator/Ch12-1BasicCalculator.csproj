@@ -50,6 +50,8 @@
     <Compile Include="frmCalculator.Designer.cs">
       <DependentUpon>frmCalculator.cs</DependentUpon>
     </Compile>
+    <Compile Include="oCalculator.cs" />
+    <Compile Include="oMemory.cs" />
     <Compile Include="oOperator.cs">
       <SubType>Form</SubType>
     </Compile>
