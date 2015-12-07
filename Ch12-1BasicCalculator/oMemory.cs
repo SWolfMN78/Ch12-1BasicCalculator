@@ -31,6 +31,7 @@ namespace Ch12_1BasicCalculator
         {
             //clear it
             memoryStoredValue = "";
+            lblMemory.Text = "";
         }
         public void MemAdd()
         {
